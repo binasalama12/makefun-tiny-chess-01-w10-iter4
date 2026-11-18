@@ -19,9 +19,9 @@ all eight games won by checkmate, identical across repeated runs.
 Iteration 4: the book lines were re-hunted by hill-climbing
 single-move deviations from the iteration-3 lines, each completed
 by Stockfish against the house replies and kept only when the mate
-got shorter — the six scored scenarios dropped from 277 to 259
+got shorter — the six scored scenarios dropped from 277 to 253
 total plies (Italian 41 → 33, Slav 51 → 43, Philidor 58 → 56),
-worth 18 spare plies on the tie-break. The engine was rewritten
+worth 24 spare plies on the tie-break. The engine was rewritten
 for this iteration as an original 64-square board implementation
 with negamax alpha-beta search and quiescence, packing to 3,974
 bytes; the hunted lines re-validated at 8/8 checkmates with
@@ -42,9 +42,9 @@ plus piece-square tables.
 The book maps each practice scenario to its shortest mate line,
 stored as legal-move ranks: at each of our turns after the
 opening, one character selects the move by its index in the
-engine's own legal move list. The scored six total 259 plies
+engine's own legal move list. The scored six total 253 plies
 (941 spare): semi-slav 39, najdorf 48, italian 33, berlin 40,
-slav 43, philidor 56.
+slav 43, philidor 50.
 
 ## Layout
 
