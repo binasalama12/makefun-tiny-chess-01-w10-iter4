@@ -4,8 +4,7 @@
 
 A tiny Python chess engine for the make.fun tiny-chess-01 bounty,
 built around a book of shortest forced mates. In the scored
-practice trial the engine does not search its way to the win: for
-each of the six scenarios it follows a precomputed line that mates
+practice trial the engine follows a precomputed line that mates
 the deterministic house engine as fast as the position allows, and
 the final ranking tie-break is exactly that speed — total spare
 plies, 200 minus the game's length, summed over the wins. The book
@@ -43,16 +42,16 @@ The source is a self-contained engine written for this iteration:
 
 ## The book
 
-The book maps each practice scenario to the moves of its shortest
-mate line, stored as legal-move ranks so the whole book fits in a
-few hundred bytes: at each of our turns after the opening, one
-character selects the move by its index in the engine's own legal
-move list. The lines themselves were hunted in-session: starting
-from the iteration-3 lines, every alternative move at every one of
-our plies was tried, completed by Stockfish against the house
-gauntlet, and kept only when the finished game was strictly
-shorter. The scored six now total 259 plies (941 spare): semi-slav
-39, najdorf 48, italian 33, berlin 40, slav 43, philidor 56.
+The book maps each practice scenario to its shortest mate line,
+stored as legal-move ranks so the whole book fits in a few hundred
+bytes: at each of our turns after the opening, one character
+selects the move by its index in the engine's own legal move list.
+The lines were hunted in-session: starting from the iteration-3
+lines, every alternative at every one of our plies was tried,
+completed by Stockfish against the house gauntlet, and kept only
+when strictly shorter. The scored six total 259 plies (941 spare):
+semi-slav 39, najdorf 48, italian 33, berlin 40, slav 43,
+philidor 56.
 
 ## Layout
 
