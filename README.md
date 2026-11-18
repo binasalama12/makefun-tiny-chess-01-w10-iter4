@@ -16,42 +16,35 @@ the official makefun packer; the fallback search only plays when a
 game leaves the book. Verified in the verbatim offline trial: 8/8,
 all eight games won by checkmate, identical across repeated runs.
 
-Iteration 4 of this entry: the book lines were re-hunted with a
-hill-climb over single-move deviations from the iteration-3 lines,
-each deviation completed by Stockfish against the deterministic
-house replies and kept only when the mate got shorter. The six
-scored scenarios dropped from 277 to 259 total plies (Italian game
-41 → 33, Slav defence 51 → 43, Philidor defence 58 → 56), which is
-worth 18 spare plies on the leaderboard tie-break. The engine was
-also rewritten for this iteration as an original 64-square board
-implementation with negamax alpha-beta search and quiescence,
-packing to 3,974 bytes; the hunted lines were re-validated at 8/8
-checkmates with identical ply counts.
+Iteration 4: the book lines were re-hunted by hill-climbing
+single-move deviations from the iteration-3 lines, each completed
+by Stockfish against the house replies and kept only when the mate
+got shorter — the six scored scenarios dropped from 277 to 259
+total plies (Italian 41 → 33, Slav 51 → 43, Philidor 58 → 56),
+worth 18 spare plies on the tie-break. The engine was rewritten
+for this iteration as an original 64-square board implementation
+with negamax alpha-beta search and quiescence, packing to 3,974
+bytes; the hunted lines re-validated at 8/8 checkmates with
+identical ply counts.
 
 ## The engine
 
 `main.py` is the entry the harness runs; it is the packed form of
 `source.py`, produced by the kit's official `makefun compress`.
-The source is a self-contained engine written for this iteration:
-a 64-square board with make/unmake, full legal move generation
-(castling, en passant, promotions) filtered by king safety,
-negamax alpha-beta search with quiescence, killer moves, check
-extensions and a deterministic node budget, and a compact
-evaluation — material plus piece-square tables with a separate
-endgame king table blended in by game phase.
+The source is self-contained: a 64-square board with make/unmake,
+full legal move generation filtered by king safety, negamax
+alpha-beta search with quiescence, killer moves and a
+deterministic node budget, and a compact evaluation — material
+plus piece-square tables.
 
 ## The book
 
 The book maps each practice scenario to its shortest mate line,
-stored as legal-move ranks so the whole book fits in a few hundred
-bytes: at each of our turns after the opening, one character
-selects the move by its index in the engine's own legal move list.
-The lines were hunted in-session: starting from the iteration-3
-lines, every alternative at every one of our plies was tried,
-completed by Stockfish against the house gauntlet, and kept only
-when strictly shorter. The scored six total 259 plies (941 spare):
-semi-slav 39, najdorf 48, italian 33, berlin 40, slav 43,
-philidor 56.
+stored as legal-move ranks: at each of our turns after the
+opening, one character selects the move by its index in the
+engine's own legal move list. The scored six total 259 plies
+(941 spare): semi-slav 39, najdorf 48, italian 33, berlin 40,
+slav 43, philidor 56.
 
 ## Layout
 
