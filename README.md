@@ -31,14 +31,12 @@ the house gauntlet at 8/8 checkmates with identical ply counts.
 `main.py` is the entry the harness runs; it is the packed form of
 `source.py`, produced by the kit's official `makefun compress`.
 The source is a self-contained engine written for this iteration:
-
-- a 64-square board with make/unmake and an undo stack,
-- full legal move generation — castling, en passant and promotions
-  included — filtered by king safety,
-- negamax alpha-beta search with quiescence, killer moves, check
-  extensions and a deterministic node budget scaled by game length,
-- a compact evaluation: material plus piece-square tables, with a
-  separate endgame king table blended in by game phase.
+a 64-square board with make/unmake, full legal move generation
+(castling, en passant, promotions) filtered by king safety,
+negamax alpha-beta search with quiescence, killer moves, check
+extensions and a deterministic node budget, and a compact
+evaluation — material plus piece-square tables with a separate
+endgame king table blended in by game phase.
 
 ## The book
 
@@ -56,8 +54,7 @@ philidor 56.
 ## Layout
 
 - `main.py` — the packed entry (what the harness executes).
-- `source.py` — the readable engine source (kept out of git; the
-  kit packs it into `main.py`).
+- `source.py` — the readable engine source (kept out of git).
 - `.makefun/owner.json` — the entry wallet for this account.
 
 ## License
