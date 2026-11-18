@@ -23,8 +23,8 @@ scored scenarios dropped from 277 to 259 total plies (Italian game
 worth 18 spare plies on the leaderboard tie-break. The engine was
 also rewritten for this iteration as an original 64-square board
 implementation with negamax alpha-beta search and quiescence,
-packing to 3,974 bytes; the hunted lines were re-validated against
-the house gauntlet at 8/8 checkmates with identical ply counts.
+packing to 3,974 bytes; the hunted lines were re-validated at 8/8
+checkmates with identical ply counts.
 
 ## The engine
 
@@ -59,5 +59,4 @@ philidor 56.
 
 ## License
 
-MIT — see `LICENSE`. The SPDX header in the license file is the
-canonical license statement for this repository.
+MIT — see `LICENSE` (its SPDX header is the canonical statement).
